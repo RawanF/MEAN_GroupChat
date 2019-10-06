@@ -17,7 +17,7 @@ color: darkslateblue;
 }
 #contant{
     width: 500px;
-   text-align: center; 
+   text-align: left; 
    margin-left: 350px;
 }
 f
@@ -29,8 +29,11 @@ f
 
 }
 
-.btn{
+#btn{
     margin-left: 350px;
     background-color: darkslateblue;
     color: white;
 }
+/* #textarea , #message{
+    text-align: right;
+} */

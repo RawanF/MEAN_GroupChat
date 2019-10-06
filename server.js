@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 app.use(express.urlencoded({ extended: true }));
-const server = app.listen(6789);
+const server = app.listen(8000);
 const io = require('socket.io')(server);
 // var users = []
 var messages = []
