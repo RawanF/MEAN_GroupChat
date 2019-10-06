@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <title>Group Chat </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+
+        var name = prompt("Please, Enter your name:")
+        $(document).ready(function () {
+            var socket = io();
+            // socket.emit('new_user', {name:name})
+            socket.on('getAllMessages', function (data) {
+                console.log(data.messages)
+                for(var i=0; i<data.messages.length;i++){
+                    $("#textarea").append(data.messages[i]+"\n")
+                }
+            });
+            socket.on('updateNewMessage', function (data) {
+                console.log(data.messages)
+                for(var i=0; i<data.messages.length;i++){
+                    $("#textarea").append(data.messages[i]+"\n")
+                }
+              
+            });
+            $('#form').submit(function (e) {
+                socket.emit('send_message', { name: name ,msg: $('#message').val()})
+                e.preventDefault();
+                $('#message').val()="";
+            });
+        })
+
+    </script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <h1>Group Chat</h1>
+        <div id="contant">
+            <form id="form">
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">onversation board: </label>
+                    <textarea class="form-control" id="textarea" rows="5" disabled></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="name">Send a Message:</label>
+                    <input type="text" class="form-control" id="message" placeholder="Enter your message here" required>
+                </div>
+                <button type="submit" class="btn">Send</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

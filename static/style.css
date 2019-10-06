@@ -1,0 +1,36 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    /* outline: solid 1px pink; */
+    font-family: sans-serif;
+}
+h1{
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+margin-bottom: 30px;
+color: darkslateblue;
+}
+#wrapper {
+    margin: 0px auto;
+    width: 1200px;
+    text-align: center;
+    padding-top: 10px;
+}
+#contant{
+    width: 500px;
+   text-align: center; 
+   margin-left: 350px;
+}
+f
+#form{
+    width: 500px;
+    text-align: left;
+    border: 1px solid darkslateblue;
+    padding: 20px;
+
+}
+
+.btn{
+    margin-left: 350px;
+    background-color: darkslateblue;
+    color: white;
+}
